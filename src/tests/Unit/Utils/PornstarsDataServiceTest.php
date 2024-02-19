@@ -24,7 +24,7 @@ class PornstarsDataServiceTest extends TestCase
         ];
 
         Cache::shouldReceive('get')->with('pornstar_data')->andReturnNull();
-        Http::k([PornstarsDataService::PORNSTARS_URL => Http::response(json_encode($data))]);
+        Http::fake([PornstarsDataService::PORNSTARS_URL => Http::response(json_encode($data))]);
         Cache::shouldReceive('put');
 
         //Act
