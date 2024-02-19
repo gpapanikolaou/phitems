@@ -70,6 +70,17 @@ docker exec phpPHItems php artisan storage:link
 ```
 9. Access the application in your web browser at `http://localhost:8088`
 
+## Testing
+
+This project includes unit tests to ensure the integrity and functionality of the codebase. You can run the tests locally using PHPUnit.
+
+### Running Tests
+
+To run the unit tests, execute the following command from the project root:
+
+```
+docker exec phpPHItems php artisan test
+```
 
 
 ## Usage
