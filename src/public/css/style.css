@@ -1,0 +1,42 @@
+        body {
+        background-color: #000000; /* Black background */
+        color: #ffffff; /* White text */
+        }
+
+        .card-title {
+        color: #000000; /* Black text */
+        }
+
+        .card-body > p, .card-body > label {
+        background-color: #000000; /* Black background */
+        padding: 5px; /* Add padding for better readability */
+        margin-bottom: 5px; /* Add margin between rows */
+        color: #ffffff; /* White text */
+        }
+
+        img {
+        max-width: 100%; /* Ensure images don't exceed container width */
+        height: auto; /* Maintain aspect ratio */
+        }
+
+        .card-link {
+        color: #000000; /* Black text for link */
+        }
+
+        .mt-auto {
+        background-color: #5e5858; /* Grey background for mt-auto div */
+        padding: 10px; /* Add padding for better appearance */
+        color: #ffffff; /* White text for attributes */
+        }
+
+        .attributes {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+        margin-bottom: 10px;
+        }
+
+        .attributes-list {
+        display: none;
+        margin-left: 20px;
+        }

@@ -1,0 +1,51 @@
+version: '3'
+
+networks:
+  laravel:
+
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginxPHItems
+    ports:
+      - "8088:80"
+    volumes:
+      - ./src:/var/www/html 
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - laravel
+
+  mysql:
+    image: mysql:8.3.0
+    container_name: mysqlPHItems
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "4306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABSE: phscrapper
+      MYSQL_USER: phscrapper
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - laravel
+
+  php:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: phpPHItems
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9010:9010"
+    networks:
+      - laravel
